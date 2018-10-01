@@ -37,3 +37,6 @@ class Coaching(models.Model):
 class Picture(models.Model):
 	description = models.CharField(max_length=240)
 	url = models.CharField(max_length=500)
+
+class Compliments(models.Model):
+	compliment = models.CharField(max_length=140)

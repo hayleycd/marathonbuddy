@@ -8,7 +8,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ(['KEY'])
+try:
+    SECRET_KEY = os.environ['KEY']
+except:
+    SECRET_KEY = "testingkey"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -30,6 +33,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,10 +69,10 @@ WSGI_APPLICATION = 'marathonbuddy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'default',
-        'USER': os.environ['MYSQLUSER'],
-        'PASSWORD': os.environ['MYSQLPASS'],
-        'HOST': os.environ['MYSQLHOST'],
+        'NAME': os.environ.get('MYSQLNAME', "testingname"),
+        'USER': os.environ.get('MYSQLUSER', 'testinguser'),
+        'PASSWORD': os.environ.get('MYSQLPASS', 'testingpass'),
+        'HOST': os.environ.get('MYSQLHOST', 'testinghost'),
     }
 }
 

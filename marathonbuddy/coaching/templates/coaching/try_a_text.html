@@ -1,0 +1,9 @@
+{% extends 'coaching/frame.html' %}
+	{% block content %}
+	<form action="/send_text">
+		<p>Phone Number:</p>
+		<br>
+		<input type="text", name="phone_number", value="15551234567">
+		<input type="submit", name="Submit">
+	</form>
+	{% endblock %}
