@@ -1,9 +1,8 @@
 {% extends 'coaching/frame.html' %}
 	{% block content %}
+	<ul>
 	{% for race in races %}
-		<div>
-		<p>{{ race.event_name }} {{ race.city }}, {{ race.state }} {{ race.event_date }}</p>	
-		</div>
-		<br>
+		<li>{{ race.event_name }} {{ race.city }}, {{ race.state }} {{ race.event_date }}</li>	
 	{% endfor %}
+	</ul>
 	{% endblock %}
