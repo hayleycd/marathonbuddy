@@ -43,5 +43,5 @@ def what_is_this(request):
 	return render(request, 'coaching/what_is_this.html')
 
 def upcoming_races(request):
-    races = models.RunEvent.objects.filter(event_date > datetime.datetime.now())
+    races = models.RunEvent.objects.filter(event_date__lte=datetime.datetime.now())
 	return render(request, 'coaching/upcoming_races.html', {"races": races})
