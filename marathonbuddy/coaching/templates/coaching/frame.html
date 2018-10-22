@@ -1,9 +1,22 @@
 <html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 <body>
-    <a href="/try_a_text">Get a Compliment</a>
-    <a href="/what_is_this">What is this?</a>
-    <a href="/who_are_you">Who are you?</a>
-    <a href="/upcoming_races">Upcoming Races</a>
+	<ul class="nav">
+  		<li class="nav-item">
+    		<a class="nav-link" href="/try_a_text">Get A Compliment</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link" href="/what_is_this">What is This?</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link" href="/who_are_you">Who are You?</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link" href="/upcoming_races">Upcoming Races</a>
+  		</li>
+	</ul>
     {% block content %}
     {% endblock %}
 </body>
