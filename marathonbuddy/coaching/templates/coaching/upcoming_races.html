@@ -1,8 +1,15 @@
 {% extends 'coaching/frame.html' %}
 	{% block content %}
+	<h3>Upcoming Races</h3>
 	<ul>
 	{% for race in races %}
 		<li>{{ race.event_name }} {{ race.city }}, {{ race.state }} {{ race.event_date }}</li>	
+	{% endfor %}
+	</ul>
+	<h3>Past Races</h3>
+	<ul>
+	{% for past_race in past %}
+		<li>{{ past_race.event_name }} {{ past_race.city }}, {{ past_race.state }} {{ past_race.event_date }}</li>	
 	{% endfor %}
 	</ul>
 	{% endblock %}

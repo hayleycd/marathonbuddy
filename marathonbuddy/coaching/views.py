@@ -42,6 +42,8 @@ def who_are_you(request):
 def what_is_this(request):
 	return render(request, 'coaching/what_is_this.html')
 
-def upcoming_races(request):
-    races = models.RunEvent.objects.filter(event_date__gte=datetime.datetime.now())
-	return render(request, 'coaching/upcoming_races.html', {"races": races})
+def races(request):
+    now = datetime.datetime.now()
+    upcoming_races = models.RunEvent.objects.filter(event_date__gte=now)
+    past_races = models.RunEvent.objects.filter(event_date__lte=now)
+	return render(request, 'coaching/upcoming_races.html', {"races": upcoming_races, "past": past_races})
