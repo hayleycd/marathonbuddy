@@ -23,8 +23,8 @@ class RunEvent(models.Model):
 	cutoff_time = models.IntegerField(null=True)
 	city = models.CharField(max_length=60, blank=True)
 	state = models.CharField(max_length=2, blank=True)
-	start_time = models.DateTimeField(blank=True)
-	stop_time = models.DateTimeField(blank=True)
+	start_time = models.DateTimeField(blank=True, null=True)
+	stop_time = models.DateTimeField(blank=True, null=True)
 	picture = models.ForeignKey('Picture', null=True, blank=True, on_delete=models.SET_NULL)
 
 
