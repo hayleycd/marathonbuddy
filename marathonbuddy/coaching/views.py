@@ -42,4 +42,5 @@ def what_is_this(request):
 	return render(request, 'coaching/what_is_this.html')
 
 def upcoming_races(request):
-	return render(request, 'coaching/upcoming_races.html')
+    races = models.RunEvent.objects.all()
+	return render(request, 'coaching/upcoming_races.html', {"races": races})

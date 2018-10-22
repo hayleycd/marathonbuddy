@@ -1,4 +1,9 @@
 {% extends 'coaching/frame.html' %}
 	{% block content %}
-	<h3>Coming Soon</h3>
+	{% for race in races %}
+		<div>
+		<p>{{ race.event_name }} {{ race.city }}, {{ race.state }} {{ race.event_date }}</p>	
+		</div>
+		<br>
+	{% endfor %}
 	{% endblock %}
