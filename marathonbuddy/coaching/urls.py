@@ -8,5 +8,5 @@ urlpatterns = [
     path('send_text/', views.send_text),
     path('who_are_you/', views.who_are_you),
     path('what_is_this/', views.what_is_this),
-    path('upcoming_races/', views.upcoming_races),
+    path('races/', views.races),
 ]
