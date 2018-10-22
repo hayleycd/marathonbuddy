@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from twilio.rest import Client
 from . import models
 import random
+import datetime
 
 account_sid = os.environ['SID']
 account_token = os.environ['AUTH_TOKEN'] 
@@ -42,5 +43,5 @@ def what_is_this(request):
 	return render(request, 'coaching/what_is_this.html')
 
 def upcoming_races(request):
-    races = models.RunEvent.objects.all()
+    races = models.RunEvent.objects.filter(event_date > datetime.datetime.now())
 	return render(request, 'coaching/upcoming_races.html', {"races": races})
