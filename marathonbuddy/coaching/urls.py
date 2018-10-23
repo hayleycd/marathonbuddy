@@ -10,4 +10,5 @@ urlpatterns = [
     path('what_is_this/', views.what_is_this),
     path('races/', views.races),
     path('sms/', views.sms_interaction),
+    path('add_cheer/', views.add_cheer)
 ]

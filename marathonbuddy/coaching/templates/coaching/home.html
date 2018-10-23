@@ -12,7 +12,7 @@
 	<h4>My Running Updates</h4>
 	<ul>
 		{% for update in updates %}
-			<li>{{ update.time_stamp }} {{ update.text_body }}</li>	
+			<li>{{ update.time_stamp }}: {{ update.text_body }}</li>	
 		{% endfor %}
 	</ul>
 	{% endblock %}
