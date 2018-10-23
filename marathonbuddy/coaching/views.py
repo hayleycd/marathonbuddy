@@ -59,9 +59,9 @@ def sms_interaction(request, methods=['GET', 'POST']):
         return HttpResponse(resp)
 
     elif body.upper() == "RACE":
+        resp = MessagingResponse()
         for cheer in cheers:
             your_message = cheer.text_body
-            resp = MessagingResponse()
             resp.message(your_message)
 
     else:
