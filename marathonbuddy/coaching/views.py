@@ -6,6 +6,8 @@ from . import models
 import random
 import datetime
 
+from twilio.twiml.messaging_response import MessagingResponse
+
 account_sid = os.environ['SID']
 account_token = os.environ['AUTH_TOKEN'] 
 my_phone = os.environ['PHONE_NUM']
@@ -45,10 +47,9 @@ def races(request):
 
 def sms_interaction(request, methods=['GET', 'POST']):
     your_message = "thanks for trying this feature."
-    message = client.messages \
-        .create(
-         body=your_message,
-         from_=twil_phone,
-         to=my_phone,
-     )
-    return redirect('/')
+
+    resp = MessagingResponse()
+
+    resp.message(your_message)
+
+    return str(resp)
