@@ -50,17 +50,18 @@ def races(request):
 def sms_interaction(request, methods=['GET', 'POST']):
     
     body = request.POST.get('Body', None)
-    cheers = models.Cheer.objects.all()
+    cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
+    shuffle(cheers)
 
     if body.upper() == "INSPO":
-        your_message = cheers[random.randrange(0, len(cheers))].text_body
+        your_message = cheers[0]
         resp = MessagingResponse()
         resp.message(your_message)
         return HttpResponse(resp)
 
     elif body.upper() == "RACE":
         resp = MessagingResponse()
-        random.shuffle(cheers)
+
         for cheer in cheers:
             your_message = cheer.text_body
             resp.message(your_message)
