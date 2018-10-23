@@ -49,7 +49,7 @@ def races(request):
 @csrf_exempt
 def sms_interaction(request, methods=['GET', 'POST']):
     
-    body = request.values.get('Body', None)
+    body = request.POST.get('Body', None)
     
     if body == "inspo":
         cheer = models.Cheer.objects.order_by('?').first()
