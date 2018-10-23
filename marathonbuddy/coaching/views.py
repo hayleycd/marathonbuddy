@@ -51,7 +51,7 @@ def sms_interaction(request, methods=['GET', 'POST']):
     
     body = request.POST.get('Body', None)
     cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
-    shuffle(cheers)
+    random.shuffle(cheers)
 
     if body.upper() == "INSPO":
         your_message = cheers[0]
