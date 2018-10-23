@@ -24,6 +24,11 @@ def try_a_text(request):
 	return render(request, 'coaching/try_a_text.html', {})
 
 def send_text(request):
+    nickname = request.GET.get('nickname')
+    how = request.GET.get('how')
+
+    if nickname and how:
+        models.Visitor(nickname, how)
     
     compliments = models.Compliment.objects.all()
     your_message = compliments[random.randrange(0, len(compliments))].compliment + \
