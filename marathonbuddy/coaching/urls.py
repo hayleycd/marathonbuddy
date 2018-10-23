@@ -9,5 +9,5 @@ urlpatterns = [
     path('who_are_you/', views.who_are_you),
     path('what_is_this/', views.what_is_this),
     path('races/', views.races),
-    path('sms/', views.sms),
+    path('sms/', views.sms_interaction),
 ]
