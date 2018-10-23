@@ -60,12 +60,13 @@ def sms_interaction(request, methods=['GET', 'POST']):
 
     elif body.upper() == "RACE":
         resp = MessagingResponse()
+        random.shuffle(cheers)
         for cheer in cheers:
             your_message = cheer.text_body
             resp.message(your_message)
 
     else:
-        your_message = "hmm"
+        your_message = "I'm sorry, I don't recognize the command."
         resp = MessagingResponse()
         resp.message(your_message)
 
