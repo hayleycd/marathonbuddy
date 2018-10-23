@@ -44,7 +44,7 @@ def races(request):
 	return render(request, 'coaching/upcoming_races.html', {"races": upcoming_races, "past": past_races})
 
 def sms_interaction(request):
-    message = "thanks for trying this feature."
+    your_message = "thanks for trying this feature."
     message = client.messages \
         .create(
          body=your_message,
