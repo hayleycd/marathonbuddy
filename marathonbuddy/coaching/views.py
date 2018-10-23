@@ -63,7 +63,7 @@ def sms_interaction(request, methods=['GET', 'POST']):
     
     #This allows me to send short updates from my phone.
 
-    if request.POST.get('from') == my_phone:
+    if request.POST.get('From') == my_phone:
         if body[0] == "#":
             models.RunUpdate(text_body=body[1:], time_stamp=datetime.datetime.now()).save()
 
