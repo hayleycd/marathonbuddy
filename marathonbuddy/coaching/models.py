@@ -6,7 +6,6 @@ class Cheer(models.Model):
 	cheerleader = models.CharField(max_length=60)
 	sent = models.BooleanField()
 	time_stamp = models.DateTimeField()
-	event = models.ForeignKey('RunEvent', null=True, on_delete=models.SET_NULL)
 
 
 class RunUpdate(models.Model):
@@ -26,12 +25,6 @@ class RunEvent(models.Model):
 	start_time = models.DateTimeField(blank=True, null=True)
 	stop_time = models.DateTimeField(blank=True, null=True)
 	picture = models.ForeignKey('Picture', null=True, blank=True, on_delete=models.SET_NULL)
-
-
-class Coaching(models.Model):
-	text_body = models.CharField(max_length=240)
-	previous_coaching_step = models.IntegerField(blank=True)
-	run_event = models.ForeignKey('RunEvent', on_delete=models.SET_NULL, null=True)
 
 
 class Picture(models.Model):
