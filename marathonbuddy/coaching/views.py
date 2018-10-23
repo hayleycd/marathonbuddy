@@ -5,6 +5,7 @@ from twilio.rest import Client
 from . import models
 import random
 import datetime
+import time
 from django.views.decorators.csrf import csrf_exempt
 
 from twilio.twiml.messaging_response import MessagingResponse
@@ -64,6 +65,8 @@ def sms_interaction(request, methods=['GET', 'POST']):
 
         for cheer in cheers:
             resp.message(cheer)
+            time.sleep(30)
+
 
     else:
         your_message = "I'm sorry, I don't recognize the command."
