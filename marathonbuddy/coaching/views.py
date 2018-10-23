@@ -21,7 +21,8 @@ def try_a_text(request):
 
 def send_text(request):
     compliments = models.Compliment.objects.all()
-    your_message = compliments[random.randrange(0, len(compliments))].compliment
+    your_message = compliments[random.randrange(0, len(compliments))].compliment + \
+        "\nThanks for dropping by! Feel free to see my work at www.codeandtea.com"
     message = client.messages \
     	.create(
          body=your_message,
