@@ -65,8 +65,6 @@ def sms_interaction(request, methods=['GET', 'POST']):
 
         for cheer in cheers:
             resp.message(cheer)
-            time.sleep(30)
-
 
     else:
         your_message = "I'm sorry, I don't recognize the command."
