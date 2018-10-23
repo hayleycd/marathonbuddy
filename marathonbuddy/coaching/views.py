@@ -52,8 +52,8 @@ def sms_interaction(request, methods=['GET', 'POST']):
     body = request.POST.get('Body', None)
     
     if body == "inspo":
-        cheer = models.Cheer.objects.order_by('?').first()
-        your_message = cheer.text_body
+        cheers = models.Cheer.objects.all()
+        your_message = cheers[random.randrange(0, len(compliments))].text_body
     else:
         your_message = "hmm"
 
