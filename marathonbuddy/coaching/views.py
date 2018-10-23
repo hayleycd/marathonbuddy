@@ -14,12 +14,6 @@ twil_phone = os.environ['TWIL']
 client = Client(account_sid, account_token)
 
 def index(request):
-	message = client.messages \
-    	.create(
-         body='Someone visited my site!',
-         from_=twil_phone,
-         to=my_phone,
-     )
 	return render(request, 'coaching/home.html', {})
 
 def try_a_text(request):
