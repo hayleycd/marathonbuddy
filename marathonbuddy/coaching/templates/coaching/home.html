@@ -5,14 +5,16 @@
 	<h4>Please Contribute an Encouraging Text</h4>
 	<p><a href="/what_is_this">What is This?</a></p>
 	<form action="/add_cheer">
-		<input type="textare" name="cheer" value="Enter your encouraging words here!"><br>
-		<input type="text" name="cheerleader">
+		<p>Enter an Encouraging Text: <input type="textare" name="cheer" value="Enter your Cheer!"></p><br>
+		<p>Enter your Name or a Nickname: <input type="text" name="cheerleader"></p><br>
 		<input type="submit" name="Submit">
 	</form>
+	<br>
 	<h4>My Running Updates</h4>
 	<ul>
 		{% for update in updates %}
 			<li>{{ update.time_stamp }}: {{ update.text_body }}</li>	
 		{% endfor %}
 	</ul>
+	<br>
 	{% endblock %}
