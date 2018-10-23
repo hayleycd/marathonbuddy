@@ -52,4 +52,4 @@ def sms_interaction(request, methods=['GET', 'POST']):
 
     resp.message(your_message)
 
-    return str(resp)
+    return
