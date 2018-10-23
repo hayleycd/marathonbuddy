@@ -42,3 +42,13 @@ def races(request):
     upcoming_races = models.RunEvent.objects.filter(event_date__gte=now)
     past_races = models.RunEvent.objects.filter(event_date__lte=now)
 	return render(request, 'coaching/upcoming_races.html', {"races": upcoming_races, "past": past_races})
+
+def sms_interaction(request):
+    message = "thanks for trying this feature."
+    message = client.messages \
+        .create(
+         body=your_message,
+         from_=twil_phone,
+         to=my_phone,
+     )
+    return redirect('/')
