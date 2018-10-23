@@ -28,7 +28,7 @@ def send_text(request):
     how = request.GET.get('how')
 
     if nickname and how:
-        models.Visitor(nickname=nickname, how=how)
+        models.Visitor(nickname=nickname, how=how).save()
 
     compliments = models.Compliment.objects.all()
     your_message = compliments[random.randrange(0, len(compliments))].compliment + \
