@@ -1,4 +1,18 @@
 {% extends 'coaching/frame.html' %}
 	{% block content %}
-	<h3>Welcome!</h3>
+	<h3>Welcome to My Marathon Buddy!</h3>
+	<p>I am glad you are here</p>
+	<h4>Please Contribute an Encouraging Text</h4>
+	<p><a href="/what_is_this">What is This?</a></p>
+	<form action="/add_cheer">
+		<input type="textare" name="cheer" value="Enter your encouraging words here!">
+		<input type="text" name="cheerleader">
+		<input type="submit" name="Submit">
+	</form>
+	<h4>My Running Updates</h4>
+	<ul>
+		{% for update in updates %}
+			<li>{{ update.time_stamp }} {{ update.text_body }}</li>	
+		{% endfor %}
+	</ul>
 	{% endblock %}

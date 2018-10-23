@@ -2,9 +2,8 @@ from django.db import models
 from django.utils import timezone
 
 class Cheer(models.Model):
-	text_body = models.CharField(max_length=240)
+	text_body = models.TextField()
 	cheerleader = models.CharField(max_length=60)
-	sent = models.BooleanField()
 
 
 class RunUpdate(models.Model):

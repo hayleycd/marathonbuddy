@@ -18,7 +18,10 @@ twil_phone = os.environ['TWIL']
 client = Client(account_sid, account_token)
 
 def index(request):
-	return render(request, 'coaching/home.html', {})
+    updates = models.RunUpdate.objects.all()
+    num_updates = len(updates) if len(updates) < 5 else 5
+    rendered_updates = updates.orderby(-time_stamp)[0 : num_updates]
+	return render(request, 'coaching/home.html', {'updates' : rendered_updates})
 
 def try_a_text(request):
 	return render(request, 'coaching/try_a_text.html', {})
@@ -57,6 +60,13 @@ def races(request):
 def sms_interaction(request, methods=['GET', 'POST']):
 
     body = request.POST.get('Body', None)
+    
+    #This allows me to send short updates from my phone.
+
+    if request.POST.get('from') == my_phone:
+        if body[0] == "#":
+            models.RunUpdate(text_body=body[1:], time_stamp=datetime.datetime.now()).save()
+
     cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
     random.shuffle(cheers)
 
@@ -64,3 +74,6 @@ def sms_interaction(request, methods=['GET', 'POST']):
     resp = MessagingResponse()
     resp.message(your_message)
     return HttpResponse(resp)
+
+def add_cheer(request):
+    return redirect('/')
