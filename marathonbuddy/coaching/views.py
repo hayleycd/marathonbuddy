@@ -63,8 +63,7 @@ def sms_interaction(request, methods=['GET', 'POST']):
         resp = MessagingResponse()
 
         for cheer in cheers:
-            your_message = cheer.text_body
-            resp.message(your_message)
+            resp.message(cheer)
 
     else:
         your_message = "I'm sorry, I don't recognize the command."
