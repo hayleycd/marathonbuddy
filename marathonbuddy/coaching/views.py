@@ -80,7 +80,7 @@ def add_cheer(request):
     cheerleader = request.GET.get('cheerleader')
 
     if cheer:
-        models.Cheer(cheer=cheer, cheerleader=cheerleader).save()
+        models.Cheer(text_body=cheer, cheerleader=cheerleader).save()
 
     return redirect('/')
 
