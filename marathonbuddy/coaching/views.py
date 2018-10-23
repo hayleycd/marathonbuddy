@@ -24,6 +24,7 @@ def try_a_text(request):
 	return render(request, 'coaching/try_a_text.html', {})
 
 def send_text(request):
+    
     compliments = models.Compliment.objects.all()
     your_message = compliments[random.randrange(0, len(compliments))].compliment + \
         "\nThanks for dropping by! Feel free to see my work at www.codeandtea.com"
@@ -49,26 +50,12 @@ def races(request):
 
 @csrf_exempt
 def sms_interaction(request, methods=['GET', 'POST']):
-    
+
     body = request.POST.get('Body', None)
     cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
     random.shuffle(cheers)
 
-    if body.upper() == "INSPO":
-        your_message = cheers[0]
-        resp = MessagingResponse()
-        resp.message(your_message)
-        return HttpResponse(resp)
-
-    elif body.upper() == "RACE":
-        resp = MessagingResponse()
-
-        for cheer in cheers:
-            resp.message(cheer)
-
-    else:
-        your_message = "I'm sorry, I don't recognize the command."
-        resp = MessagingResponse()
-        resp.message(your_message)
-
+    your_message = cheers[0]
+    resp = MessagingResponse()
+    resp.message(your_message)
     return HttpResponse(resp)
