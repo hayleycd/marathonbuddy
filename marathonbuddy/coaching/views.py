@@ -20,7 +20,7 @@ client = Client(account_sid, account_token)
 def index(request):
     updates = models.RunUpdate.objects.all()
     num_updates = len(updates) if len(updates) < 5 else 5
-    rendered_updates = updates.orderby(-time_stamp)[0 : num_updates]
+    rendered_updates = updates.order_by(-time_stamp)[0 : num_updates]
     return render(request, 'coaching/home.html', {'updates' : rendered_updates})
 
 def try_a_text(request):
