@@ -18,7 +18,7 @@ twil_phone = os.environ['TWIL']
 client = Client(account_sid, account_token)
 
 def index(request):
-    updates = models.RunUpdate.objects.all().order_by(-time_stamp)
+    updates = models.RunUpdate.objects.all().order_by('-time_stamp')
     num_updates = len(updates) if len(updates) < 5 else 5
     rendered_updates = updates.order_by(-time_stamp)[0 : num_updates]
     return render(request, 'coaching/home.html', {'updates' : rendered_updates})
