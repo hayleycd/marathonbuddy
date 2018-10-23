@@ -48,7 +48,14 @@ def races(request):
 
 @csrf_exempt
 def sms_interaction(request, methods=['GET', 'POST']):
-    your_message = "thanks for trying this feature."
+    
+    body = request.values.get('Body', None)
+    
+    if body == "inspo":
+        cheer = models.Cheer.objects.order_by('?').first()
+        your_message = cheer.text_body
+    else:
+        your_message = "hmm"
 
     resp = MessagingResponse()
 
