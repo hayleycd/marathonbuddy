@@ -76,4 +76,11 @@ def sms_interaction(request, methods=['GET', 'POST']):
     return HttpResponse(resp)
 
 def add_cheer(request):
+    cheer = request.GET.get('cheer')
+    cheerleader = request.GET.get('cheerleader')
+
+    if cheer:
+        models.Cheer(cheer=cheer, cheerleader=cheerleader).save()
+
     return redirect('/')
+
