@@ -5,6 +5,7 @@ from twilio.rest import Client
 from . import models
 import random
 import datetime
+from django.views.decorators.csrf import csrf_exempt
 
 from twilio.twiml.messaging_response import MessagingResponse
 
@@ -45,6 +46,7 @@ def races(request):
     past_races = models.RunEvent.objects.filter(event_date__lte=now)
 	return render(request, 'coaching/upcoming_races.html', {"races": upcoming_races, "past": past_races})
 
+@csrf_exempt
 def sms_interaction(request, methods=['GET', 'POST']):
     your_message = "thanks for trying this feature."
 
