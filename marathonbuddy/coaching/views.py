@@ -43,7 +43,7 @@ def races(request):
     past_races = models.RunEvent.objects.filter(event_date__lte=now)
 	return render(request, 'coaching/upcoming_races.html', {"races": upcoming_races, "past": past_races})
 
-def sms_interaction(request):
+def sms_interaction(request, methods=['GET', 'POST']):
     your_message = "thanks for trying this feature."
     message = client.messages \
         .create(
