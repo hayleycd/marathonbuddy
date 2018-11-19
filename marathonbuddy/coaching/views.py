@@ -60,7 +60,7 @@ def races(request):
 def sms_interaction(request, methods=['GET', 'POST']):
 
     body = request.POST.get('Body', None)
-    message_sid = request.POST.get('MessageSid', None)
+    message_sid = request.POST.get('Sid', None)
     
     #This allows me to send short updates from my phone.
 
