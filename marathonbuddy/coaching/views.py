@@ -60,17 +60,13 @@ def races(request):
 def sms_interaction(request, methods=['GET', 'POST']):
 
     body = request.POST.get('Body', None)
-    message_sid = request.POST.get('MessageSid')
+    message_sid = request.POST.get('MessageSid', None)
     
     #This allows me to send short updates from my phone.
 
     if request.POST.get('From') == my_phone:
         if body[0] == "#":
             models.RunUpdate(text_body=body[1:], time_stamp=datetime.datetime.now()).save()
-        media = client.messages(message_sid).media.list()
-        media = [myurl.uri for myurl in media]
-        resp = MessagingResponse()
-        resp.message(media[0])
 
         return HttpResponse(resp)
 
