@@ -60,19 +60,27 @@ def races(request):
 def sms_interaction(request, methods=['GET', 'POST']):
 
     body = request.POST.get('Body', None)
-    message_sid = request.POST.get('Media.Uri', None)
+    message_sid = request.POST.get('MessageSid')
     
     #This allows me to send short updates from my phone.
 
     if request.POST.get('From') == my_phone:
         if body[0] == "#":
             models.RunUpdate(text_body=body[1:], time_stamp=datetime.datetime.now()).save()
+        media = client.messages(message_sid).media.list()
+        media = [myurl.uri for myurl in media]
+        resp = MessagingResponse()
+        resp.message(media[0])
+
+        return HttpResponse(resp)
+
     cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
     random.shuffle(cheers)
 
-    your_message = message_sid if message_sid else cheers[0]
+    your_message = cheers[0]
     resp = MessagingResponse()
     resp.message(your_message)
+
     return HttpResponse(resp)
 
 def add_cheer(request):
@@ -83,4 +91,9 @@ def add_cheer(request):
         models.Cheer(text_body=cheer, cheerleader=cheerleader).save()
 
     return redirect('/')
+
+def get_pictures(request):
+
+    pass
+
 
