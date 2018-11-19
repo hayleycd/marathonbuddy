@@ -18,11 +18,13 @@ class PictureAdmin(admin.ModelAdmin):
 
 
 class ComplimentAdmin(admin.ModelAdmin):
-	list_display = ('Compliment',)
+	list_display = ('compliment',)
 
 
 class VisitorAdmin(admin.ModelAdmin):
 	list_display = ('nickname', 'how',)
+
+
 admin.site.register(Cheer, CheerAdmin)
 admin.site.register(RunUpdate, RunUpdateAdmin)
 admin.site.register(RunEvent, RunEventAdmin)
