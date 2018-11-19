@@ -60,7 +60,7 @@ def races(request):
 def sms_interaction(request, methods=['GET', 'POST']):
 
     body = request.POST.get('Body', None)
-    url = request.POST.get('Media.uri', None)
+    message_sid = request.POST.get('MessageSid', None)
     
     #This allows me to send short updates from my phone.
 
@@ -70,7 +70,7 @@ def sms_interaction(request, methods=['GET', 'POST']):
     cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
     random.shuffle(cheers)
 
-    your_message = url if url else cheers[0]
+    your_message = message_sid if message_sid else cheers[0]
     resp = MessagingResponse()
     resp.message(your_message)
     return HttpResponse(resp)
