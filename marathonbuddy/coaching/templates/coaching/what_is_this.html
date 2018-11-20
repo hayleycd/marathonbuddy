@@ -1,15 +1,40 @@
 {% extends 'coaching/frame.html' %}
 	{% block content %}
-	<h3>What is This About?</h3>
-	<p>Hi!</p>
-	<p>My name is Hayley and I have a running problem. I love to run, but sometimes I need a boost.</p>
-	<p>Enter: My Marathon Buddy</p>
-	<p>My Marathon Buddy is a web app that provides encouragement during your toughest runs. Here is How:</p>
-	<ol>
-		<li>Start Small! Get a compliment from me by clicking <a href="/try_a_text">here</a> and filling out the form!</li>
-		<li>Now you have my twilio number. This is important.</li>
-		<li>Feel free to text that number if you ever need encouragement while out on the run.</li>
-		<li>Please contribute! On the <a href="/">homepage</a> there is a form you can fill out to add your own encouragements.</li>
-		<li>This website is also going to serve as a diary of all my running events. You can see my list of races <a href="/races">here.</a></li>
-	</ol>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4"><h3>What is This About?</h3></div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<p>Hi!</p>
+			<p>My name is Hayley and I have a running problem. I love to run, but sometimes I need a boost.</p>
+			<p>Enter: My Marathon Buddy</p>
+			<p>My Marathon Buddy is a web app that provides encouragement during your toughest runs.</p>
+		</div>
+		<div class="col-sm-6">
+			<p>Here is How:</p>
+			<ol>
+				<li>Start Small! Get a compliment from me by clicking <a href="/try_a_text">here</a> and filling out the form!</li>
+				<li>Now you have my twilio number. This is important.</li>
+				<li>Feel free to text that number if you ever need encouragement while out on the run.</li>
+				<li>Please contribute! On the <a href="/">homepage</a> there is a form you can fill out to add your own encouragements.</li>
+				<li>This website is also going to serve as a diary of all my running events. You can see my list of races <a href="/races">here.</a></li>
+			</ol>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4"><img src="/static/running.jpg" width="200" height="auto"></div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+
 	{% endblock %}
