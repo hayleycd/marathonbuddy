@@ -7,9 +7,9 @@
 	<p>Learn more <a href="/what_is_this">here</a></p>
 	<p>PS. I won't store your phone number in my database. That info will be available through my twilio dashboard, but their site is more secure and I promise not to call anyone or share the numbers.</p>
 	<form action="/send_text">
-		<p>Phone Number: <input type="text", name="phone_number", value="15551234567"></p>
-		<p>Name or nickname: <input type="text" name="nickname"></p>
-		<p>How did you come across this site?: <input type="textarea" name="how"></p>
+		<p>Phone Number: <input type="text", name="phone_number", value="15551234567" class="form-control"></p>
+		<p>Name or nickname: <input type="text" name="nickname" class="form-control"></p>
+		<p>How did you come across this site?: <input type="textarea" name="how" class="form-control"></p>
 		<input type="submit", name="Submit" class="btn btn-secondary btn-lg">
 	</form>
 	{% endblock %}
