@@ -68,8 +68,6 @@ def sms_interaction(request, methods=['GET', 'POST']):
         if body[0] == "#":
             models.RunUpdate(text_body=body[1:], time_stamp=datetime.datetime.now()).save()
 
-        return HttpResponse(resp)
-
     cheers = [cheer.text_body for cheer in models.Cheer.objects.all()]
     random.shuffle(cheers)
 
